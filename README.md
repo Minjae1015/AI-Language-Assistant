@@ -8,3 +8,6 @@
 ## 기술
 - 구글 번역기 API
 - DeepL API
+
+## 실행 모습
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/ccd304ec7216874b8872bcb422e234c828ad8690/Screenshot%202026-07-08%20at%2015.42.56.png)
