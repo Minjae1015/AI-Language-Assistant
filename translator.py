@@ -37,7 +37,7 @@ for num, name in languages.items():
 target_choice = input("입력 (1~7): ")
 
 #번역 문장 입력
-text = input("\n \n 번역할 문장을 입력하세요")
+text = input("\n \n 번역할 문장을 입력하세요:")
 
 if source_choice == "8":
     source = "auto"
@@ -58,4 +58,4 @@ try:
 
 #오류
 except Exception:
-    print("\n \n 번역 중 오류가 발생했습니다.")
+    print("\n \n 번역 중 오류가 발생했습니다")
