@@ -15,7 +15,7 @@
 - DeepL API
 
 ## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/f08af1b674d586e0f270112a669b0362530be2c2/Screenshot%202026-07-13%20at%2012.50.20.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/9ccca44fffb3550975d531835c8a2531fdf95950/Screenshot%202026-07-20%20at%2017.49.22.png)
 
 ## 다운로드 및 실행 방법 
 ### Git을 이용하여 다운로드 
