@@ -21,53 +21,73 @@ lang_codes = {
     "스페인어": "es"
 }
 
-# 원본 언어
 while True:
-    print("\n \n 원본 언어를 선택하세요:")
-    for num, name in languages.items():
-        print(f"[{num}] {name}")
-    print("[8] 자동 감지")
 
-    source_choice = input("번호 입력: ")
+    # 원본 언어
+    while True:
+        print(" \n \n 원본 언어를 선택하세요")
+        for num, name in languages.items():
+            print(f"[{num}] {name}")
+        print("[8] 자동 감지")
 
-    if source_choice in languages or source_choice == "8":
-        break
+        source_choice = input("번호 입력: ")
 
-    print("다시 입력해주세요.")
+        if source_choice in languages or source_choice == "8":
+            break
 
-# 번역할 언어
-while True:
-    print("\n \n 번역할 언어를 선택하세요:")
-    for num, name in languages.items():
-        print(f"[{num}] {name}")
+        print("다시 입력해주세요")
 
-    target_choice = input("번호 입력: ")
+    # 번역할 언어
+    while True:
+        print(" \n \n 번역할 언어를 선택하세요")
+        for num, name in languages.items():
+            print(f"[{num}] {name}")
 
-    if target_choice in languages:
-        break
+        target_choice = input("번호 입력: ")
 
-    print("다시 입력해주세요.")
+        if target_choice in languages:
+            break
 
-# 번역할 문장
-while True:
-    text = input("\n \n 번역할 문장을 입력하세요: ")
+        print("다시 입력해주세요")
 
-    if text.strip():
-        break
+    # 번역할 문장
+    while True:
+        text = input(" \n \n 번역할 문장을 입력하세요: ")
 
-    print("문장을 입력해주세요:")
+        if text.strip():
+            break
 
-if source_choice == "8":
-    source = "auto"
-else:
-    source = lang_codes[languages[source_choice]]
+        print(" \n 문장을 입력해주세요")
 
-target = lang_codes[languages[target_choice]]
+    if source_choice == "8":
+        source = "auto"
+    else:
+        source = lang_codes[languages[source_choice]]
 
-try:
-    translated = GoogleTranslator(source=source, target=target).translate(text)
-    print("\n \n 번역 결과")
-    print(translated)
+    target = lang_codes[languages[target_choice]]
 
-except:
-    print("오류가 발생했습니다.")
+    try:
+        translated = GoogleTranslator(source=source, target=target).translate(text)
+        print(" \n \n 번역 결과:")
+        print(translated)
+
+    except:
+        print("오류가 발생했습니다")
+
+    # 홈
+    while True:
+        print(" \n \n")
+        print("[1] 다시 번역")
+        print("[2] 종료")
+
+        menu = input(" \n \n 번호 입력: ")
+
+        if menu == "1":
+            break
+
+        elif menu == "2":
+            print("프로그램 종료")
+            exit()
+
+        else:
+            print("다시 입력해주세요")
