@@ -8,14 +8,13 @@
 - 여러개의 언어 선택 가능: 다국어 번역 지원
 - 자연스러운 어조 선택: API를 통한 자연스러운 번역
 - 간단한 방식으로 번역 가능: 쉽고 간편한 UI
-- 오류에도 자연스러운 대응 가능
 
 ## 기술
 - 구글 번역기 API
 - DeepL API
 
 ## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/9ccca44fffb3550975d531835c8a2531fdf95950/Screenshot%202026-07-20%20at%2017.49.22.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/07da2a6cf0a0ee3322c38906859110045c84d438/Screenshot%202026-07-24%20at%2013.41.46.png)
 
 ## 다운로드 및 실행 방법 
 ### Git을 이용하여 다운로드 
@@ -23,3 +22,28 @@
 ```bash
 git clone [https://github.com/Minjae1015/AI-Language-Assistant.git](https://github.com/Minjae1015/AI-Language-Assistant.git)
 cd AI-Language-Assistant
+
+## 버전 기록
+
+### Version 1.5 
+- 번역 기록 저장 기능 추가
+- 자연스러워진 프로그램 작동 방식
+
+### Version 1.4 
+- 번역 반복 기능 추가
+- 번역 프로그램 종료 기능 추가
+
+### Version 1.3 
+- 숫자 입력 오류 대응 기능 추가
+- 번역할 문장 입력 오류 대응 기능 추가
+
+### Version 1.2 
+- 숫자를 이용한 편리한 언어 선택 기능 추가
+- 언어 자동 감지 기능 추가
+
+### Version 1.1 
+- 여러 언어 지원 기능 추가
+- 입력과 출력 언어 선택 가능 추가
+
+### Version 1.0 
+- 구글 번역기와 딥 번역기의 API를 이용한 기본적인 번역 프로그램
