@@ -16,13 +16,6 @@
 ## 실행 모습
 ![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/07da2a6cf0a0ee3322c38906859110045c84d438/Screenshot%202026-07-24%20at%2013.41.46.png)
 
-## 다운로드 및 실행 방법 
-### Git을 이용하여 다운로드 
-터미널(또는 CMD)을 열고 아래 명령어를 입력하여 저장소를 복제합니다.
-```bash
-git clone [https://github.com/Minjae1015/AI-Language-Assistant.git](https://github.com/Minjae1015/AI-Language-Assistant.git)
-cd AI-Language-Assistant
-
 ## 버전 기록
 
 ### Version 1.5 
@@ -47,3 +40,14 @@ cd AI-Language-Assistant
 
 ### Version 1.0 
 - 구글 번역기와 딥 번역기의 API를 이용한 기본적인 번역 프로그램
+
+## 다운로드 및 실행 방법 
+### Git을 이용하여 다운로드 
+터미널(또는 CMD)을 열고 아래 명령어를 입력하여 저장소를 복제합니다.
+```bash
+git clone [https://github.com/Minjae1015/AI-Language-Assistant.git](https://github.com/Minjae1015/AI-Language-Assistant.git)
+cd AI-Language-Assistant
+
+
+
+
