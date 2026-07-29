@@ -14,9 +14,14 @@
 - DeepL API
 
 ## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/07da2a6cf0a0ee3322c38906859110045c84d438/Screenshot%202026-07-24%20at%2013.41.46.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/10f1f0e2b1798827ecfa043d84709e755f5ca67b/Screenshot%202026-07-29%20at%2011.35.52.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/10f1f0e2b1798827ecfa043d84709e755f5ca67b/Screenshot%202026-07-29%20at%2011.35.58.png)
 
 ## 버전 기록
+
+### Version 1.6
+- 프로그램 실행 순서 개선
+- 번역 기록 방식 개선
 
 ### Version 1.5 
 - 번역 기록 저장 기능 추가
