@@ -26,13 +26,15 @@ lang_codes = {
 
 # 기록 저장
 history = []
+history_file = "history.txt"
 
 while True:
 
-    print(" \n \nAI Language Assistant")
+    print(" \n \n AI Language Assistant")
     print("[1] 번역하기")
     print("[2] 번역 기록")
-    print("[3] 종료")
+    print("[3] 저장된 기록")
+    print("[4] 종료")
 
     first_menu = input(" \n \n 번호 입력: ")
 
@@ -55,6 +57,21 @@ while True:
         continue
 
     elif first_menu == "3":
+
+        if os.path.exists(history_file):
+
+            print(" \n \n 저장된 기록입니다:\n")
+
+            with open(history_file, "r", encoding="utf-8") as file:
+                print(file.read())
+
+        else:
+            print("저장된 기록이 없습니다.")
+
+        input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+        continue
+
+    elif first_menu == "4":
         print("프로그램 종료")
         exit()
 
@@ -112,6 +129,11 @@ while True:
 
         # 기록 저장
         history.append((text, translated))
+
+        with open(history_file, "a", encoding="utf-8") as file:
+            file.write("원본 : " + text + "\n")
+            file.write("결과 : " + translated + "\n")
+            file.write("-" * 30 + "\n")
 
     except:
         print("오류가 발생했습니다")
