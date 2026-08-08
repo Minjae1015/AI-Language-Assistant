@@ -34,7 +34,8 @@ while True:
     print("[1] 번역하기")
     print("[2] 번역 기록")
     print("[3] 저장된 기록")
-    print("[4] 종료")
+    print("[4] 기록 삭제")
+    print("[5] 종료")
 
     first_menu = input(" \n \n 번호 입력: ")
 
@@ -66,12 +67,39 @@ while True:
                 print(file.read())
 
         else:
-            print("저장된 기록이 없습니다.")
+            print("저장된 기록이 없습니다")
 
         input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
         continue
 
     elif first_menu == "4":
+
+        if not os.path.exists(history_file):
+            print("삭제할 기록이 없습니다")
+            input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+            continue
+
+        print(" \n \n 정말 기록을 삭제하시겠습니까?")
+        print("[1] 예")
+        print("[2] 아니오")
+
+        delete_choice = input("번호 입력: ")
+
+        if delete_choice == "1":
+            os.remove(history_file)
+            history.clear()
+            print("번역 기록이 삭제되었습니다")
+
+        elif delete_choice == "2":
+            print("삭제를 취소했습니다")
+
+        else:
+            print("다시 입력해주세요")
+
+        input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+        continue
+
+    elif first_menu == "5":
         print("프로그램 종료")
         exit()
 
@@ -122,7 +150,10 @@ while True:
 
     # 번역 실행 및 기록
     try:
-        translated = GoogleTranslator(source=source, target=target).translate(text)
+        translated = GoogleTranslator(
+            source=source,
+            target=target
+        ).translate(text)
 
         print(" \n \n 번역 결과:")
         print(translated)
