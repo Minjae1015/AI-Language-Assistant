@@ -2,29 +2,31 @@ import os
 from deep_translator import GoogleTranslator
 
 # 사용할 언어
+
 languages = {
-    "1": "한국어",
-    "2": "영어",
-    "3": "일본어",
-    "4": "중국어(간체)",
-    "5": "프랑스어",
-    "6": "독일어",
-    "7": "스페인어",
-    "8": "자동 감지"
+"1": "한국어",
+"2": "영어",
+"3": "일본어",
+"4": "중국어(간체)",
+"5": "프랑스어",
+"6": "독일어",
+"7": "스페인어",
+"8": "자동 감지"
 }
 
 lang_codes = {
-    "한국어": "ko",
-    "영어": "en",
-    "일본어": "ja",
-    "중국어(간체)": "zh-CN",
-    "프랑스어": "fr",
-    "독일어": "de",
-    "스페인어": "es",
-    "자동 감지": "auto"
+"한국어": "ko",
+"영어": "en",
+"일본어": "ja",
+"중국어(간체)": "zh-CN",
+"프랑스어": "fr",
+"독일어": "de",
+"스페인어": "es",
+"자동 감지": "auto"
 }
 
 # 기록 저장
+
 history = []
 history_file = "history.txt"
 
@@ -157,6 +159,14 @@ while True:
 
         print(" \n \n 번역 결과:")
         print(translated)
+
+        print(" \n \n 번역 전")
+        print("글자 수 :", len(text))
+        print("단어 수 :", len(text.split()))
+
+        print(" \n \n 번역 후")
+        print("글자 수 :", len(translated))
+        print("단어 수 :", len(translated.split()))
 
         # 기록 저장
         history.append((text, translated))
