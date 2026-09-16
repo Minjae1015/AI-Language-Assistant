@@ -14,10 +14,7 @@
 - DeepL API
 
 ## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/39d1bb0782e066d728d93e4a9db322fb2bbcee12/Screenshot%202026-08-08%20at%2021.55.22.png)
-
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/39d1bb0782e066d728d93e4a9db322fb2bbcee12/Screenshot%202026-08-08%20at%2021.55.26.png)
-
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/416bc3f8076dd8f5a5f24f4e4219139aa66dd787/Screenshot%202026-08-31%20at%2019.33.01.png)
 
 ## 버전 기록
 
