@@ -18,9 +18,6 @@
 
 ## 버전 기록
 
-### Version 2.0
-- Python 기반의 프로그램을 JavaScript로 변환
-
 ### Version 1.9
 - 입력과 출력 단어와 글자 개수 분석 기능 추가
 
