@@ -1,199 +1,344 @@
 import os
-from deep_translator import GoogleTranslator
+import json
+import urllib.request
+import urllib.parse
 
 # 사용할 언어
 
 languages = {
-"1": "한국어",
-"2": "영어",
-"3": "일본어",
-"4": "중국어(간체)",
-"5": "프랑스어",
-"6": "독일어",
-"7": "스페인어",
-"8": "자동 감지"
+    "1": "Korean",
+    "2": "English",
+    "3": "Japanese",
+    "4": "Chinese (Simplified)",
+    "5": "French",
+    "6": "German",
+    "7": "Spanish"
 }
 
 lang_codes = {
-"한국어": "ko",
-"영어": "en",
-"일본어": "ja",
-"중국어(간체)": "zh-CN",
-"프랑스어": "fr",
-"독일어": "de",
-"스페인어": "es",
-"자동 감지": "auto"
+    "Korean": "ko",
+    "English": "en",
+    "Japanese": "ja",
+    "Chinese (Simplified)": "zh-CN",
+    "French": "fr",
+    "German": "de",
+    "Spanish": "es"
 }
+
+# DeepL 언어 코드 
+
+deepl_source = {
+    "ko": "KO", "en": "EN", "ja": "JA",
+    "zh-CN": "ZH", "fr": "FR", "de": "DE", "es": "ES"
+}
+
+deepl_target = {
+    "ko": "KO", "en": "EN-US", "ja": "JA",
+    "zh-CN": "ZH-HANS", "fr": "FR", "de": "DE", "es": "ES"
+}
+
+# DeepL API 키 
+
+DEEPL_KEY = os.environ.get("DEEPL_KEY")
 
 # 기록 저장
 
 history = []
-history_file = "history.txt"
+history_file = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "history.txt"
+)
+
+
+# API 번역
+
+def translate_text(text, source, target):
+
+    if not DEEPL_KEY:
+        raise Exception("DEEPL_KEY is not set")
+
+    data = urllib.parse.urlencode({
+        "text": text,
+        "source_lang": deepl_source[source],
+        "target_lang": deepl_target[target]
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        "https://api-free.deepl.com/v2/translate",
+        data=data,
+        headers={"Authorization": "DeepL-Auth-Key " + DEEPL_KEY}
+    )
+
+    with urllib.request.urlopen(req, timeout=10) as response:
+        result = json.loads(response.read().decode("utf-8"))
+
+    return result["translations"][0]["text"]
+
+
+# AI 문장 분석
+
+def analyze_sentence(sentence):
+
+    print(" \n \nAI Sentence Analysis")
+
+    # 글자 수
+    character_count = len(sentence)
+
+    # 단어 수
+    word_count = len(sentence.split())
+
+    print("Characters :", character_count)
+    print("Words :", word_count)
+
+    # 문장 종류 분석
+    if sentence.endswith("?"):
+        print("Sentence type : Question")
+
+    elif sentence.endswith("!"):
+        print("Sentence type : Exclamation")
+
+    else:
+        print("Sentence type : Statement")
+
+    # 긍정 / 부정 표현 분석
+    positive_words = [
+        "good", "great", "happy", "love", "like",
+        "좋아", "좋은", "행복", "사랑"
+    ]
+
+    negative_words = [
+        "bad", "sad", "hate", "angry",
+        "싫어", "나쁜", "슬퍼", "화"
+    ]
+
+    positive_count = 0
+    negative_count = 0
+
+    lower_sentence = sentence.lower()
+
+    for word in positive_words:
+        if word in lower_sentence:
+            positive_count += 1
+
+    for word in negative_words:
+        if word in lower_sentence:
+            negative_count += 1
+
+    if positive_count > negative_count:
+        print("Tone : Positive")
+
+    elif negative_count > positive_count:
+        print("Tone : Negative")
+
+    else:
+        print("Tone : Neutral")
+
+    # 문장 길이 분석
+    if word_count <= 5:
+        print("Sentence length : Short")
+
+    elif word_count <= 15:
+        print("Sentence length : Medium")
+
+    else:
+        print("Sentence length : Long")
+
 
 while True:
 
-    print(" \n \n AI Language Assistant")
-    print("[1] 번역하기")
-    print("[2] 번역 기록")
-    print("[3] 저장된 기록")
-    print("[4] 기록 삭제")
-    print("[5] 종료")
+    print(" \n \nAI Language Assistant")
+    print("[1] Translate")
+    print("[2] Translation history")
+    print("[3] Saved history")
+    print("[4] Delete history")
+    print("[5] Exit")
 
-    first_menu = input(" \n \n 번호 입력: ")
+    first_menu = input(" \n \nEnter a number: ")
 
     if first_menu == "2":
 
-        print(" \n \n 번역 기록입니다:")
+        print(" \n \nTranslation history:")
 
         if len(history) == 0:
-            print("기록이 없습니다.")
+            print("No history.")
 
         else:
             count = 1
+
             for original, result in history:
                 print(f"\n[{count}]")
-                print("원본 :", original)
-                print("결과 :", result)
+                print("Original :", original)
+                print("Result :", result)
                 count += 1
 
-        input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+        input(" \n \nPress Enter to return to the menu")
         continue
 
     elif first_menu == "3":
 
         if os.path.exists(history_file):
 
-            print(" \n \n 저장된 기록입니다:\n")
+            print(" \n \nSaved history:\n")
 
             with open(history_file, "r", encoding="utf-8") as file:
                 print(file.read())
 
         else:
-            print("저장된 기록이 없습니다")
+            print("No saved history")
 
-        input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+        input(" \n \nPress Enter to return to the menu")
         continue
 
     elif first_menu == "4":
 
         if not os.path.exists(history_file):
-            print("삭제할 기록이 없습니다")
-            input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+            print("No history to delete")
+            input(" \n \nPress Enter to return to the menu")
             continue
 
-        print(" \n \n 정말 기록을 삭제하시겠습니까?")
-        print("[1] 예")
-        print("[2] 아니오")
+        print(" \n \nAre you sure you want to delete the history?")
+        print("[1] Yes")
+        print("[2] No")
 
-        delete_choice = input("번호 입력: ")
+        delete_choice = input("Enter a number: ")
 
         if delete_choice == "1":
             os.remove(history_file)
             history.clear()
-            print("번역 기록이 삭제되었습니다")
+            print("Translation history has been deleted")
 
         elif delete_choice == "2":
-            print("삭제를 취소했습니다")
+            print("Deletion cancelled")
 
         else:
-            print("다시 입력해주세요")
+            print("Please try again")
 
-        input(" \n \n 엔터를 누르면 메뉴로 돌아갑니다")
+        input(" \n \nPress Enter to return to the menu")
         continue
 
     elif first_menu == "5":
-        print("프로그램 종료")
+        print("Exiting program")
         exit()
 
     elif first_menu != "1":
-        print("다시 입력해주세요")
+        print("Please try again")
         continue
 
     # 원본 언어
     while True:
-        print(" \n \n 원본 언어를 선택하세요")
+
+        print(" \n \nSelect the source language")
+
         for num, name in languages.items():
             print(f"[{num}] {name}")
 
-        source_choice = input("번호 입력: ")
+        source_choice = input("Enter a number: ")
 
         if source_choice in languages:
             break
 
-        print("다시 입력해주세요")
+        print("Please try again")
 
     # 번역할 언어
     while True:
-        print(" \n \n 번역할 언어를 선택하세요")
+
+        print(" \n \nSelect the target language")
+
         for num, name in languages.items():
-            if num == "8":
-                continue
             print(f"[{num}] {name}")
 
-        target_choice = input("번호 입력: ")
+        target_choice = input("Enter a number: ")
 
-        if target_choice in languages and target_choice != "8":
+        if target_choice in languages:
             break
 
-        print("다시 입력해주세요")
+        print("Please try again")
+
+    # 같은 언어 선택 방지
+    if source_choice == target_choice:
+        print(" \n \nSource and target language are the same.")
+        input(" \n \nPress Enter to return to the menu")
+        continue
 
     # 문장 입력
     while True:
-        text = input(" \n \n 번역할 문장을 입력하세요: ")
+
+        text = input(" \n \n Enter the sentence to translate: ")
 
         if text.strip():
             break
 
-        print(" \n \n 문장을 입력해주세요")
+        print(" \n \nPlease enter a sentence")
 
     # 언어 코드 매핑
+
     source = lang_codes[languages[source_choice]]
     target = lang_codes[languages[target_choice]]
 
     # 번역 실행 및 기록
+
     try:
-        translated = GoogleTranslator(
-            source=source,
-            target=target
-        ).translate(text)
 
-        print(" \n \n 번역 결과:")
+        translated = translate_text(text, source, target)
+
+        print(" \n-------------------------------- ") 
+        print(" \nTranslation result:")
         print(translated)
+        print(" \n-------------------------------- ")
 
-        print(" \n \n 번역 전")
-        print("글자 수 :", len(text))
-        print("단어 수 :", len(text.split()))
+        # 직접 만든 문장 분석
+        analyze_sentence(translated)
+        print(" \n-------------------------------- ")
 
-        print(" \n \n 번역 후")
-        print("글자 수 :", len(translated))
-        print("단어 수 :", len(translated.split()))
+        print(" \nBefore translation:")
+        print("Characters :", len(text))
+        print("Words :", len(text.split()))
+        print(" \n-------------------------------- ")
+
+        print(" \nAfter translation:")
+        print("Characters :", len(translated))
+        print("Words :", len(translated.split()))
+        print(" \n-------------------------------- ")
 
         # 기록 저장
         history.append((text, translated))
 
         with open(history_file, "a", encoding="utf-8") as file:
-            file.write("원본 : " + text + "\n")
-            file.write("결과 : " + translated + "\n")
+            file.write("Original : " + text + "\n")
+            file.write("Result : " + translated + "\n")
             file.write("-" * 30 + "\n")
 
-    except:
-        print("오류가 발생했습니다")
+    except Exception as e:
+
+        if "429" in str(e) or "too many" in str(e).lower():
+            print("Too many translation requests.")
+            print("Please try again in a moment.")
+
+        elif "456" in str(e):
+            print("Monthly free quota (500,000 characters) used up.")
+
+        elif "403" in str(e):
+            print("Invalid API key. Check your DEEPL_KEY.")
+
+        else:
+            print("Translation error:")
+            print(type(e).__name__)
+            print(str(e)[:300])
 
     while True:
 
         print(" \n \n ")
-        print("[1] 메인 메뉴")
-        print("[2] 종료")
+        print("[1] Main menu")
+        print("[2] Exit")
 
-        menu = input(" \n \n 번호 입력: ")
+        menu = input(" \n \nEnter a number: ")
 
         if menu == "1":
             break
 
         elif menu == "2":
-            print("프로그램 종료")
+            print("Exiting program")
             exit()
 
         else:
-            print("다시 입력해주세요")
-
+            print("Please try again")
