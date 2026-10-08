@@ -10,13 +10,21 @@
 - 간단한 방식으로 번역 가능: 쉽고 간편한 UI
 
 ## 기술
-- 구글 번역기 API
 - DeepL API
 
 ## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/416bc3f8076dd8f5a5f24f4e4219139aa66dd787/Screenshot%202026-08-31%20at%2019.33.01.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png)
 
 ## 버전 기록
+
+### Version 2.1
+- 접근성을 위해 언어 변경
+- DeepL API 적용으로 향상된 성능
+- 더 간단하고 정돈된 인터페이스
+
+### Version 2.0
+-AI 기능으로 문장 분석 기능 추가
+-인공지능을 활용해 여러 기능 확장 가능
 
 ### Version 1.9
 - 입력과 출력 단어와 글자 개수 분석 기능 추가
