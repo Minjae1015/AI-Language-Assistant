@@ -1,76 +1,73 @@
-# AI-Language-Assistant
-구글 번역기와 Deep Translator API를 활용한 맞춤형 AI 번역 프로그램입니다. AI 번역기로 시작해서 학업 관련 논문, 지문 요약 등 번역기에서 확장한 다용도 프로그램을 목표로 하고 있습니다.
+**# AI-Language-Assistant**
+A customized AI translation program utilizing Google Translate and the Deep Translator API. Starting as an AI translator, the goal is to develop a versatile program expanded beyond translation to include academic research paper and text summarization.
 
-# 프로젝트 개발 동기
-영국, 프랑스 등 많은 해외 유학생 생활을 통해 저뿐만이 아닌 많은 학생들과 일부 선생님들까지 언어 장벽으로 인한 어려움을 겪는다는 것을 느꼈습니다. 그래서 이러한 어려움들을 조금이나마 해결하고 싶은 생각에 이 프로젝트 개발을 시작하게 되었습니다. 기본적인 의사소통부터 이메일, 긴 문서까지 언어가 개입되는 요소들이 국제 사회에서는 다방면으로 퍼져있기에 최대한 많은 측면을 해결할 수 있도록 여러 방면으로 실행이 가능한 AI 기반 번역 프로그램을 만들겠다는 목표를 세우게 되었습니다.
+**# Project Motivation**
+Through my experiences as an international student in countries such as the UK and France, I realized that not only students like myself but also some teachers experience difficulties due to language barriers. Therefore, I started developing this project with the intention of helping to overcome these difficulties, even if only to a small extent. Since language-related challenges are widespread in international society, ranging from basic communication to emails and lengthy documents, I established the goal of creating an AI-based translation program capable of addressing as many of these challenges as possible.
 
-## 프로그램 주요 기능
-- 여러개의 언어 선택 가능: 다국어 번역 지원
-- 자연스러운 어조 선택: API를 통한 자연스러운 번역
-- 간단한 방식으로 번역 가능: 쉽고 간편한 UI
+**## Main Program Features**
+\- Multiple language options available: Supports multilingual translation
+\- Natural tone selection: Natural translation through APIs
+\- Simple translation process: Easy and convenient UI
 
-## 기술
-- DeepL API
+**## Technologies**
+\- Google Translate API
+\- DeepL API
 
-## 실행 모습
-![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png)
+**## Program Screenshots**
+![image alt]\([https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png](https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png)
 
-## 버전 기록
+**## Version History   
 
-### Version 2.1
-- 접근성을 위해 언어 변경
-- DeepL API 적용으로 향상된 성능
-- 더 간단하고 정돈된 인터페이스
+**### Version 2.1**
+\- Changed language selection for accessibility
+\- Improved performance through DeepL API integration
+\- Simpler and more organized interface
 
-### Version 2.0
--AI 기능으로 문장 분석 기능 추가
--인공지능을 활용해 여러 기능 확장 가능
+**### Version 2.0**
+-Added sentence analysis functionality using AI
+-AI enables the expansion of various features
 
-### Version 1.9
-- 입력과 출력 단어와 글자 개수 분석 기능 추가
+**### Version 1.9**
+\- Added analysis of input and output word and character counts
 
-### Version 1.8
-- 번역 기록 삭제 기능 추가
-- 삭제 전 확인 기능 추가
+**### Version 1.8**
+\- Added translation history deletion functionality
+\- Added confirmation before deletion
 
-### Version 1.7
-- 번역 기록 txt 파일로 저장
-- 프로그램 종료 시에도 파일 유지
+**### Version 1.7**
+\- Saved translation history to a txt file
+\- Maintained files even after program termination
 
-### Version 1.6
-- 프로그램 실행 순서 개선
-- 번역 기록 방식 개선
+**### Version 1.6**
+\- Improved program execution order
+\- Improved translation history method
 
-### Version 1.5 
-- 번역 기록 저장 기능 추가
-- 자연스러워진 프로그램 작동 방식
+**### Version 1.5&#x20;**
+\- Added translation history saving functionality
+\- More natural program operation
 
-### Version 1.4 
-- 번역 반복 기능 추가
-- 번역 프로그램 종료 기능 추가
+**### Version 1.4&#x20;**
+\- Added translation repetition functionality
+\- Added program termination functionality
 
-### Version 1.3 
-- 숫자 입력 오류 대응 기능 추가
-- 번역할 문장 입력 오류 대응 기능 추가
+**### Version 1.3&#x20;**
+\- Added handling for numerical input errors
+\- Added handling for translation text input errors
 
-### Version 1.2 
-- 숫자를 이용한 편리한 언어 선택 기능 추가
-- 언어 자동 감지 기능 추가
+**### Version 1.2&#x20;**
+\- Added convenient language selection using numbers
+\- Added automatic language detection
 
-### Version 1.1 
-- 여러 언어 지원 기능 추가
-- 입력과 출력 언어 선택 가능 추가
+**### Version 1.1&#x20;**
+\- Added support for multiple languages
+\- Added the ability to select input and output languages
 
-### Version 1.0 
-- 구글 번역기와 딥 번역기의 API를 이용한 기본적인 번역 프로그램
+**### Version 1.0&#x20;**
+\- Basic translation program using Google Translate and Deep Translator APIs
 
-## 다운로드 및 실행 방법 
-### Git을 이용하여 다운로드 
-터미널(또는 CMD)을 열고 아래 명령어를 입력하여 저장소를 복제합니다.
-```bash
-git clone [https://github.com/Minjae1015/AI-Language-Assistant.git](https://github.com/Minjae1015/AI-Language-Assistant.git)
+**## Download and Run Instructions&#x20;**
+**### Downloading Using Git&#x20;**
+Open a terminal (or CMD) and enter the following commands to clone the repository.
+\`\`\`bash
+git clone [[https://github.com/Minjae1015/AI-Language-Assistant.git\](https://github.com/Minjae1015/AI-Language-Assistant.git)](https://github.com/Minjae1015/AI-Language-Assistant.git]\(https://github.com/Minjae1015/AI-Language-Assistant.git\))
 cd AI-Language-Assistant
-
-
-
-
