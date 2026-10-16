@@ -14,7 +14,7 @@ Through my experiences as an international student in countries such as the UK a
 - DeepL API
 
 ## Program Screenshots
-![image alt]\([https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png](https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png)
+![image alt](https://github.com/Minjae1015/AI-Language-Assistant/blob/58127c5b6295f73a7622b5904ea56add80f72534/Screenshot%202026-10-08%20at%2023.47.04.png)
 
 ## Version History   
 
