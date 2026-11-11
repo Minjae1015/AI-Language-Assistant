@@ -21,7 +21,7 @@ lang_codes = {
       "Korean": "ko",
       "English": "en",
       "Japanese": "ja",
-      "Chinese (Simplified)": "zh",  # M2M100 uses 'zh' for Chinese
+      "Chinese (Simplified)": "zh",  
       "French": "fr",
       "German": "de",
       "Spanish": "es"
@@ -39,7 +39,7 @@ history_file = os.path.join(
       "history.txt"
 )   
   
-# AI 번역 함수 (Maxed out limits at 1024)
+# AI 번역 함수 
 def translate_text(text, source, target):
     """
     Translates text between any supported languages using M2M100.
@@ -79,7 +79,7 @@ def analyze_sentence(sentence):
     else:
         print("Sentence type : Statement")
 
-    # 긍정 / 부정 표현 분석
+    # 긍정, 부정 표현 분석
     positive_words = [
         "good", "great", "happy", "love", "like",
         "좋아", "좋은", "행복", "사랑"
@@ -212,7 +212,7 @@ while True:
         input(" \n \nPress Enter to return to the menu")
         continue
 
-    # 파일에서 긴 텍스트 읽기 (Read long text from input.txt)
+    # 파일에서 긴 텍스트 읽기 
     input_file_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         "input.txt"
@@ -234,13 +234,12 @@ while True:
 
     print(f"Loaded {len(text)} characters from input.txt successfully!")
 
-    # Convert menu choices to language codes
     source = lang_codes[languages[source_choice]]
     target = lang_codes[languages[target_choice]]
 
     print(" \nTranslating... please wait (local AI is processing on CPU)...")
 
-    # 번역 실행 및 기록 (Chunking logic + 1024 limits)
+    # 번역 실행 및 기록 
     try:
         paragraphs = text.split("\n")
         translated_paragraphs = []
