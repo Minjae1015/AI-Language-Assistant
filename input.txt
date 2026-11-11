@@ -1,0 +1,11 @@
+Purpose
+ This study aims to explore how artificial intelligence (AI) tools influence the academic success and adaptation of international students in higher education. It examines the benefits, challenges and ethical considerations including academic integrity of integrating AI in learning environments.
+ 
+ Design/methodology/approach
+ An exploratory qualitative research approach was employed, utilising semi-structured interviews with postgraduate international students from diverse backgrounds.
+ 
+ Findings
+ The findings suggest that AI tools enhance academic performance by offering personalised learning, immediate feedback and efficient assessment. However, concerns about ethical use, over-reliance and the potential impact on critical thinking and academic integrity were prominent in the contexts of assessments and learning experiences.
+ 
+ Originality/value
+ The research offers unique insights by focusing on postgraduate international students, an often-underrepresented group in AI education studies. Their distinctive challenges, including adapting to new academic environments and overcoming language barriers, make them a particularly valuable sample for understanding the role of AI in higher education. This focus allows the study to contribute new perspectives on how generative AI (GenAI) tools like Grammarly and ChatGPT facilitate academic performance improvement, especially in enhancing writing proficiency and managing academic expectations. These findings extend the discussion by specifically addressing the experiences of international students in postgraduate studies, a demographic where AI’s impact has been less explored.
