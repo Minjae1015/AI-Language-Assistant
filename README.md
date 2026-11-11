@@ -18,6 +18,10 @@ Through my experiences as an international student in countries such as the UK a
 
 ## Version History   
 
+### Version 2.2
+- Extended length limit for sentence input and output
+- Implement of Input.txt for more efficient translation
+
 ### Version 2.1
 - Changed language selection for accessibility
 - Improved performance through DeepL API integration
