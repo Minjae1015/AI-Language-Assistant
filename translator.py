@@ -29,7 +29,7 @@ MODEL_NAME = "facebook/m2m100_418M"
 tokenizer = M2M100Tokenizer.from_pretrained(MODEL_NAME)
 model = M2M100ForConditionalGeneration.from_pretrained(MODEL_NAME)
   
- 기록 저장
+# 기록 저장
 history = []
 history_file = os.path.join(
       os.path.dirname(os.path.abspath(__file__)),
