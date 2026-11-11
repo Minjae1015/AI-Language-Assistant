@@ -2,9 +2,6 @@ import os
 import json
 import torch
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
-from huggingface_hub import login
-  
-login(token=os.getenv("HF_TOKEN"))
   
 # 사용할 언어
 languages = {
@@ -32,7 +29,7 @@ MODEL_NAME = "facebook/m2m100_418M"
 tokenizer = M2M100Tokenizer.from_pretrained(MODEL_NAME)
 model = M2M100ForConditionalGeneration.from_pretrained(MODEL_NAME)
   
-# 기록 저장
+ 기록 저장
 history = []
 history_file = os.path.join(
       os.path.dirname(os.path.abspath(__file__)),
@@ -41,9 +38,6 @@ history_file = os.path.join(
   
 # AI 번역 함수 
 def translate_text(text, source, target):
-    """
-    Translates text between any supported languages using M2M100.
-    """
     tokenizer.src_lang = source
     
     inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=1024)
@@ -53,8 +47,8 @@ def translate_text(text, source, target):
             forced_bos_token_id=tokenizer.get_lang_id(target),
             max_new_tokens=1024
         )   
-    translated_text = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
-    return translated_text
+    result = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
+    return result
 
 # AI 문장 분석
 def analyze_sentence(sentence):
@@ -228,33 +222,33 @@ while True:
         text = f.read().strip()
 
     if not text:
-        print(" \n \n'input.txt' is empty! Please add some text to translate.")
+        print(" \n \n'input.txt' is empty.")
         input(" \n \nPress Enter to return to the menu")
         continue
 
-    print(f"Loaded {len(text)} characters from input.txt successfully!")
+    print(f"Loaded {len(text)} input successful")
 
     source = lang_codes[languages[source_choice]]
     target = lang_codes[languages[target_choice]]
 
-    print(" \nTranslating... please wait (local AI is processing on CPU)...")
+    print(" \nTranslating")
 
     # 번역 실행 및 기록 
     try:
         paragraphs = text.split("\n")
-        translated_paragraphs = []
+        results = []
 
         for p in paragraphs:
             if p.strip() == "":
-                translated_paragraphs.append("")
+                results.append("")
                 continue
-            p_translated = translate_text(p, source, target)
-            translated_paragraphs.append(p_translated)
+            r = translate_text(p, source, target)
+            results.append(r)
 
-        translated = "\n".join(translated_paragraphs)
+        translated = "\n".join(results)
 
         print(" \n-------------------------------- ") 
-        print(" \nTranslation result:")
+        print(" \nTranslation result:\n")
         print(translated)
         print(" \n-------------------------------- ")
 
@@ -264,7 +258,6 @@ while True:
         print(" \nBefore translation:")
         print("Characters :", len(text))
         print("Words :", len(text.split()))
-        print(" \n-------------------------------- ")
 
         print(" \nAfter translation:")
         print("Characters :", len(translated))
@@ -279,9 +272,7 @@ while True:
             file.write("-" * 30 + "\n")
 
     except Exception as e:
-        print("Translation error:")
-        print(type(e).__name__)
-        print(str(e)[:300])
+        print("Translation error:", e)
 
     while True:
         print(" \n \n ")
