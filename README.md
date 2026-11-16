@@ -38,7 +38,7 @@ Through my experiences as an international student in countries such as the UK a
 - Added translation history deletion functionality
 - Added confirmation before deletion
 
-### Version 1.7**
+### Version 1.7
 - Saved translation history to a txt file
 - Maintained files even after program termination
 
