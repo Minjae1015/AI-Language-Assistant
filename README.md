@@ -62,7 +62,7 @@ Through my experiences as an international student in countries such as the UK a
 - Added convenient language selection using numbers
 - Added automatic language detection
 
-### Version 1.1&
+### Version 1.1
 - Added support for multiple languages
 - Added the ability to select input and output languages
 
